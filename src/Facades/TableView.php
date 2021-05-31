@@ -13,6 +13,6 @@ class TableView extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'bernardosequeir\LaravelTableView\laravelTableView';
+        return 'bernardosequeir\LaravelTableView\LaravelTableView';
     }
 }
