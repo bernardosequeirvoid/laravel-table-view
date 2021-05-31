@@ -1,13 +1,13 @@
 <?php
 
-namespace Bernardosequeir\LaravelTableView;
+namespace bernardosequeir\LaravelTableView;
 
-use Bernardosequeir\LaravelTableView\Repositories\SearchRepository;
-use Bernardosequeir\LaravelTableView\Repositories\SortRepository;
+use bernardosequeir\LaravelTableView\Repositories\SearchRepository;
+use bernardosequeir\LaravelTableView\Repositories\SortRepository;
 
-use Bernardosequeir\LaravelTableView\LaravelTableViewColumn;
+use bernardosequeir\LaravelTableView\LaravelTableViewColumn;
 
-use Bernardosequeir\LaravelTableView\Presenters\LaravelTableViewPresenter;
+use bernardosequeir\LaravelTableView\Presenters\LaravelTableViewPresenter;
 
 use Request;
 use Cookie;
@@ -35,12 +35,12 @@ class LaravelTableView
 	protected $headerControlView;
 
 	/**
-	 * @var Bernardosequeir\LaravelTableView\Repositories\SortRepository
+	 * @var bernardosequeir\LaravelTableView\Repositories\SortRepository
 	 */
 	protected $sortRepo;
 
 	/**
-	 * @var Bernardosequeir\LaravelTableView\Repositories\SearchRepository
+	 * @var bernardosequeir\LaravelTableView\Repositories\SearchRepository
 	 */
 	protected $searchRepo;
 
@@ -82,7 +82,7 @@ class LaravelTableView
 	 *
 	 * @param mixed $dataCollection - Illuminate\Database\Eloquent\Builder or (string) Eloquent Model Class Name
 	 * @param array $columns
-	 * @return Bernardosequeir\LaravelTableView\LaravelTableView
+	 * @return bernardosequeir\LaravelTableView\LaravelTableView
 	 */
 	public static function collection($dataCollection, $tableName = '')
 	{
@@ -105,7 +105,7 @@ class LaravelTableView
 	 * Add additonal search fields
 	 *
 	 * @param array $searchFields
-	 * @return Bernardosequeir\LaravelTableView\LaravelTableView
+	 * @return bernardosequeir\LaravelTableView\LaravelTableView
 	 */
 	public function search($searchFields)
 	{
@@ -119,7 +119,7 @@ class LaravelTableView
 	 *
 	 * @param mixed $title
 	 * @param mixed $value
-	 * @return Bernardosequeir\LaravelTableView\LaravelTableView
+	 * @return bernardosequeir\LaravelTableView\LaravelTableView
 	 */
 	public function column($title, $value = null)
 	{
@@ -150,7 +150,7 @@ class LaravelTableView
 	 *
 	 * @param string $view
 	 * @param string $collectionAlias
-	 * @return Bernardosequeir\LaravelTableView\LaravelTableView
+	 * @return bernardosequeir\LaravelTableView\LaravelTableView
 	 */
 	public function headerControl($viewPath, $viewParams = [])
 	{
@@ -234,7 +234,7 @@ class LaravelTableView
 	/**
 	 * Paginate and build tableview for view
 	 *
-	 * @return Bernardosequeir\LaravelTableView\LaravelTableView
+	 * @return bernardosequeir\LaravelTableView\LaravelTableView
 	 */
 	public function build()
 	{
@@ -254,7 +254,7 @@ class LaravelTableView
 	/**
 	 * Return helper class for subviews
 	 *
-	 * @return Bernardosequeir\LaravelTableView\Presenters\LaravelTableViewPresenter
+	 * @return bernardosequeir\LaravelTableView\Presenters\LaravelTableViewPresenter
 	 */
 	public function present()
 	{
@@ -266,8 +266,8 @@ class LaravelTableView
 	 *
 	 * @param string $path
 	 * @param Illuminate\Database\Eloquent\Collection $dataCollection
-	 * @param Bernardosequeir\LaravelTableView\Repositories\SearchRepository $searchRepo
-	 * @return Bernardosequeir\LaravelTableView\Repositories\SortRepository $sortRepo
+	 * @param bernardosequeir\LaravelTableView\Repositories\SearchRepository $searchRepo
+	 * @return bernardosequeir\LaravelTableView\Repositories\SortRepository $sortRepo
 	 * @return array $tableViewColumns
 	 * @return Illuminate\Database\Eloquent\Collection
 	 */

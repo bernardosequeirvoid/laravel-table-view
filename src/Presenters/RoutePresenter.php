@@ -1,6 +1,6 @@
 <?php
 
-namespace Bernardosequeir\LaravelTableView\Presenters;
+namespace bernardosequeir\LaravelTableView\Presenters;
 
 class RoutePresenter
 {

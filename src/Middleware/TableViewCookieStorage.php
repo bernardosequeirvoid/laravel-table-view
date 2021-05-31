@@ -1,11 +1,11 @@
 <?php
 
-namespace Bernardosequeir\LaravelTableView\Middleware;
+namespace bernardosequeir\LaravelTableView\Middleware;
 
 use Closure;
-use Bernardosequeir\LaravelTableView\CookieStorage\LookInStorage;
-use Bernardosequeir\LaravelTableView\CookieStorage\UpdateStorage;
-use Bernardosequeir\LaravelTableView\Presenters\RoutePresenter;
+use bernardosequeir\LaravelTableView\CookieStorage\LookInStorage;
+use bernardosequeir\LaravelTableView\CookieStorage\UpdateStorage;
+use bernardosequeir\LaravelTableView\Presenters\RoutePresenter;
 
 
 class TableViewCookieStorage

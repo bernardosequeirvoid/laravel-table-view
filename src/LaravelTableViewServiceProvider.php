@@ -1,9 +1,9 @@
 <?php
 
-namespace Bernardosequeir\LaravelTableView;
+namespace bernardosequeir\LaravelTableView;
 
 use Illuminate\Support\ServiceProvider;
-use Bernardosequeir\LaravelTableView\LaravelTableView;
+use bernardosequeir\LaravelTableView\LaravelTableView;
 
 class LaravelTableViewServiceProvider extends ServiceProvider
 {

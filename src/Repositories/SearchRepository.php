@@ -1,6 +1,6 @@
 <?php
 
-namespace Bernardosequeir\LaravelTableView\Repositories;
+namespace bernardosequeir\LaravelTableView\Repositories;
 
 use Request;
 

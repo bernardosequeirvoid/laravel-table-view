@@ -1,6 +1,6 @@
 <?php
 
-namespace Bernardosequeir\LaravelTableView\CookieStorage;
+namespace bernardosequeir\LaravelTableView\CookieStorage;
 
 class UpdateStorage
 {

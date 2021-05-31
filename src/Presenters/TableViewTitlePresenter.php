@@ -1,13 +1,13 @@
 <?php
 
-namespace Bernardosequeir\LaravelTableView\Presenters;
+namespace bernardosequeir\LaravelTableView\Presenters;
 
 use Request;
 
 class TableViewTitlePresenter
 {
 	/**
-	 * @param Bernardosequeir\LaravelTableView\LaravelTableView $laravelTableView
+	 * @param bernardosequeir\LaravelTableView\LaravelTableView $laravelTableView
 	 * @param int $dataCollectionSize
 	 * @return string
 	 */
