@@ -1,5 +1,5 @@
 {
-    "name": "witty/laravel-table-view",
+    "name": "bernardosequeir/laravel-table-view",
     "description": "Laravel 5 Package for easily displaying table views for Eloquent Collections with search and sort functionality built in.",
     "keywords": [
         "search",
