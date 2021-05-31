@@ -1,11 +1,11 @@
 <?php
 
-namespace Witty\LaravelTableView\Repositories;
+namespace Bernardosequeir\LaravelTableView\Repositories;
 
 use Request;
 // use Illuminate\Cookie\Cookie;
 
-class SortRepository 
+class SortRepository
 {
 	/**
 	 * @var array
@@ -13,69 +13,68 @@ class SortRepository
 	private $defaultSort;
 
 	/**
-     * @var string
-     */
+	 * @var string
+	 */
 	private $sortedBy;
 
 	/**
-     * @var boolean
-     */
+	 * @var boolean
+	 */
 	private $sortAscending;
 
 	/**
-     * @param \Witty\LaravelTableView\LaravelTableViewColumn $column
-     * @return void
-     */
+	 * @param \Bernardosequeir\LaravelTableView\LaravelTableViewColumn $column
+	 * @return void
+	 */
 	public function setDefault($column)
 	{
 		$this->newDefaults(
-			$column->propertyName(), 
+			$column->propertyName(),
 			$column->defaultSortingDirectionIsAscending()
 		);
 	}
 
 	/**
-     * @param string $propertyName
-     * @param boolean $isAscending
-     * @return void
-     */
+	 * @param string $propertyName
+	 * @param boolean $isAscending
+	 * @return void
+	 */
 	public function setDefaultFromCookie($propertyName, $isAscending)
 	{
 		$this->newDefaults($propertyName, $isAscending);
 	}
 
 	/**
-     * @return string
-     */
+	 * @return string
+	 */
 	public function sortedBy()
 	{
 		return $this->sortedBy;
 	}
 
 	/**
-     * @return string
-     */
+	 * @return string
+	 */
 	public function sortAscending()
 	{
 		return $this->sortAscending;
 	}
 
 	/**
-     * @param \Illuminate\Database\Eloquent\Collection $dataCollection
-     * @param array $columns
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
+	 * @param \Illuminate\Database\Eloquent\Collection $dataCollection
+	 * @param array $columns
+	 * @return \Illuminate\Database\Eloquent\Collection
+	 */
 	public function addOrder($dataCollection, $columns)
 	{
-		if ( ! isset($this->defaultSort['property']) )
-		{
+		if (!isset($this->defaultSort['property'])) {
 			$this->defaultSort = $this->findADefault($columns);
 		}
 
 		$this->sortedBy = Request::input('sortedBy', $this->defaultSort['property']);
 		$this->sortAscending = Request::input('asc', $this->defaultSort['isAscending']);
 
-		if ( ! $this->sortedBy) {
+		if (!$this->sortedBy) {
 			return $dataCollection;
 		}
 
@@ -87,14 +86,14 @@ class SortRepository
 			$sortField = \DB::raw($sortField);
 		}
 
-		return $dataCollection->orderBy( $sortField, $this->sortAscending ? 'ASC' : 'DESC');
+		return $dataCollection->orderBy($sortField, $this->sortAscending ? 'ASC' : 'DESC');
 	}
 
 	/**
-     * @param string $propertyName
-     * @param boolean $isAscending
-     * @return void
-     */
+	 * @param string $propertyName
+	 * @param boolean $isAscending
+	 * @return void
+	 */
 	private function newDefaults($propertyName, $isAscending)
 	{
 		$this->defaultSort = [
@@ -104,15 +103,13 @@ class SortRepository
 	}
 
 	/**
-     * @param array $columns
-     * @return array
-     */
+	 * @param array $columns
+	 * @return array
+	 */
 	private function findADefault($columns)
 	{
-		foreach($columns as $column)
-		{
-			if ( $column->isSortable() )
-			{
+		foreach ($columns as $column) {
+			if ($column->isSortable()) {
 				return [
 					'property' 	  => $column->propertyName(),
 					'isAscending' => true

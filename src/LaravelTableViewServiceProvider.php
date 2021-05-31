@@ -1,9 +1,9 @@
 <?php
 
-namespace Witty\LaravelTableView;
+namespace Bernardosequeir\LaravelTableView;
 
 use Illuminate\Support\ServiceProvider;
-use Witty\LaravelTableView\LaravelTableView;
+use Bernardosequeir\LaravelTableView\LaravelTableView;
 
 class LaravelTableViewServiceProvider extends ServiceProvider
 {

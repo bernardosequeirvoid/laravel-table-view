@@ -1,10 +1,10 @@
 <?php
 
-namespace Witty\LaravelTableView\Repositories;
+namespace Bernardosequeir\LaravelTableView\Repositories;
 
 use Request;
 
-class SearchRepository 
+class SearchRepository
 {
 	/**
 	 * @var string
@@ -32,55 +32,52 @@ class SearchRepository
 	}
 
 	/**
-     * @param mixed $searchField
-     * @return void
-     */
+	 * @param mixed $searchField
+	 * @return void
+	 */
 	public function field($searchField)
 	{
-		if ( is_string($searchField) )
-		{
+		if (is_string($searchField)) {
 			$this->searchFields[] = $searchField;
-		}
-		else if ( is_array($searchField) )
-		{
+		} else if (is_array($searchField)) {
 			$this->searchFields = array_merge(
-				$this->searchFields, $searchField
+				$this->searchFields,
+				$searchField
 			);
 		}
 	}
 
 	/**
-     * @return boolean
-     */
+	 * @return boolean
+	 */
 	public function isEnabled()
 	{
 		return (bool) count($this->searchFields);
 	}
 
 	/**
-     * @return string
-     */
+	 * @return string
+	 */
 	public function queryString()
 	{
 		return $this->searchQuery;
 	}
 
 	/**
-     * Filter data collection for search query if there is one
-     *
-     * @param \Illuminate\Database\Eloquent\Collection $dataCollection
-     * @param array
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
+	 * Filter data collection for search query if there is one
+	 *
+	 * @param \Illuminate\Database\Eloquent\Collection $dataCollection
+	 * @param array
+	 * @return \Illuminate\Database\Eloquent\Collection
+	 */
 	public function addSearch($dataCollection)
 	{
-		if ( ! $this->searchQuery ) {
+		if (!$this->searchQuery) {
 			return $dataCollection;
 		}
 
 		$searchableFields = $this->searchFields;
-		return $dataCollection->where(function($data) use ($searchableFields)
-		{
+		return $dataCollection->where(function ($data) use ($searchableFields) {
 			$i = 0;
 			foreach ($searchableFields as $searchableProperty) {
 				$whereClause = ($i === 0) ? 'where' : 'orWhere';
@@ -93,7 +90,9 @@ class SearchRepository
 				}
 
 				$data->{$whereClause}(
-					$searchableProperty, 'LIKE', "%{$this->searchQuery}%"
+					$searchableProperty,
+					'LIKE',
+					"%{$this->searchQuery}%"
 				);
 
 				$i++;

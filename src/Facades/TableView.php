@@ -1,6 +1,6 @@
 <?php
 
-namespace Witty\LaravelTableView\Facades;
+namespace Bernardosequeir\LaravelTableView\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -13,6 +13,6 @@ class TableView extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Witty\LaravelTableView\laravelTableView';
+        return 'Bernardosequeir\LaravelTableView\laravelTableView';
     }
 }
