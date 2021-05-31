@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 namespace Witty\LaravelTableView;
 
 use Illuminate\Support\ServiceProvider;
 use Witty\LaravelTableView\LaravelTableView;
 
-class LaravelTableViewServiceProvider extends ServiceProvider 
+class LaravelTableViewServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -21,15 +21,15 @@ class LaravelTableViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    	$this->loadViewsFrom(__DIR__ . '/../views', 'table-view');
+        $this->loadViewsFrom(__DIR__ . '/../views', 'table-view');
 
-    	$this->publishes([
-	        __DIR__ . '/../views' => base_path('resources/views/vendor/table-view'),
-	    ]);
+        $this->publishes([
+            __DIR__ . '/../views' => base_path('resources/views/vendor/table-view'),
+        ]);
 
-	    $this->publishes([
-	        __DIR__ . '/../assets' => public_path('vendor/table-view'),
-	    ], 'public');
+        $this->publishes([
+            __DIR__ . '/../assets' => public_path('vendor/table-view'),
+        ], 'public');
     }
 
     /**
@@ -39,10 +39,8 @@ class LaravelTableViewServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['laravelTableView'] = $this->app->share(function($app)
-        {
-            return new LaravelTableView;
+        $this->app->singleton(laravelTableView::class, function ($app) {
+            return new laravelTableView;
         });
     }
-
 }
